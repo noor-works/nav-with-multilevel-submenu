@@ -25,10 +25,7 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
-}
-
-::-webkit-scrollbar {
-  width: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -37,6 +34,7 @@ html {
 
 body {
   background-color: var(--dark);
+  color: var(--light);
 }
 /* Reusuable Class */
 .container {
@@ -67,6 +65,8 @@ body {
   background-color: var(--dark);
   box-shadow: var(--box-shadow);
   backdrop-filter: var(--blur);
+  position: sticky;
+  top: 0;
 }
 
 .logo,
@@ -213,10 +213,14 @@ body {
     padding: 1rem;
     opacity: 0;
     visibility: hidden;
-    max-height: 100vh;
+    max-height: calc(100vh - var(--nav-height));
     overflow-y: scroll;
     transition: var(--smooth);
     gap: 1rem;
+  }
+
+  .navbar-nav::-webkit-scrollbar {
+    width: 0;
   }
 
   .navbar-nav.active {
@@ -250,6 +254,6 @@ body {
   .sub-menu .sub-menu {
     top: 0;
     left: 0;
-    margin-inline: calc(1rem + 5px);
+    margin-left: calc(1rem + 5px);
   }
 }
